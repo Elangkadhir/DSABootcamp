@@ -8,25 +8,25 @@ public class Average {
     }
 
     static int avg() {
-        Scanner in = new Scanner(System.in);
+        try (Scanner in = new Scanner(System.in)) {
+            int sum = 0;
+            int length = 0;
 
-        int sum = 0;
-        int length = 0;
-
-        while (true) {
-            int n = in.nextInt();
-            if (n == 0) {
-                break;
+            while (true) {
+                int n = in.nextInt();
+                if (n == 0) {
+                    break;
+                }
+                sum += n;
+                length++;
             }
-            sum += n;
-            length++;
-        }
 
-        if (length == 0) {
-            System.out.println("No numbers entered");
-            return 0;
-        }
+            if (length == 0) {
+                System.out.println("No numbers entered");
+                return 0;
+            }
 
-        return sum / length;
+            return sum / length;
+        }
     }
 }
